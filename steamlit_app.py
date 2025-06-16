@@ -17,6 +17,8 @@ session =cnx.session()
 import requests
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
 st.text(smoothiefroot_response)
+#st.write(smoothiefroot_response.json())
+sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width= True)
 
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('fruit_name'))
 #st.dataframe(data=my_dataframe, use_container_width=True)
